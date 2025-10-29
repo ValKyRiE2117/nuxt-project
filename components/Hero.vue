@@ -22,7 +22,7 @@
           Explore Indonesia's Beauty
         </h1>
         <p
-          class="text-lg md:text-xl text-white/80 max-w-3xl mx-auto drop-shadow-md"
+          class="text-lg md:text-xl text-white/90 max-w-3xl mx-auto drop-shadow-md"
         >
           Discover your dream destination at the best price. An unforgettable
           travel experience awaits you!
@@ -30,7 +30,7 @@
       </div>
 
       <!-- Search Box -->
-      <div class="bg-white rounded-xl shadow-2xl p-4 md:p-6 max-w-2xl mx-auto">
+      <div class="bg-white rounded-xl shadow-2xl p-2 md:p-4 max-w-2xl mx-auto">
         <form
           @submit.prevent="handleSearch"
           class="flex flex-col md:flex-row gap-4"
@@ -63,7 +63,7 @@
                 v-model="searchQuery"
                 type="text"
                 placeholder="Where do you want to go?"
-                class="w-full pl-12 pr-4 py-3 text-gray-700 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-sky-500 focus:border-transparent transition-all duration-200"
+                class="w-full pl-12 pr-4 py-3 text-gray-700 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-sky-500 focus:border-transparent transition-all duration-200"
               />
             </div>
           </div>

@@ -1,5 +1,5 @@
 <template>
-  <section class="bg-gray-50 pt-16 px-4">
+  <section class="bg-gray-50 py-16 px-4">
     <div class="max-w-7xl mx-auto">
       <!-- Header -->
       <div class="text-center mb-12">
@@ -17,6 +17,7 @@
           v-for="pkg in packages"
           :key="pkg.id"
           class="bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-shadow duration-300"
+          @click="goToPackage(pkg)"
         >
           <!-- Image Container with Badges -->
           <div class="relative h-48">
@@ -28,7 +29,7 @@
             <!-- Discount Badge -->
             <div class="absolute top-4 left-4">
               <span
-                class="bg-orange-400 text-white px-3 py-1 rounded-full text-xs font-bold"
+                class="bg-red-700 text-white px-3 py-1 rounded-full text-xs font-bold"
               >
                 {{ pkg.discount }}
               </span>
@@ -108,11 +109,12 @@
               <p class="text-sm text-gray-500 line-through mb-1">
                 ${{ pkg.originalPrice }}
               </p>
-              <p class="text-3xl font-bold text-sky-500">${{ pkg.price }}</p>
+              <p class="text-xl font-bold text-sky-500">${{ pkg.price }}</p>
             </div>
 
             <!-- CTA Button -->
             <button
+              @click.stop="goToPackage(pkg)"
               class="w-full bg-sky-500 hover:bg-sky-600 text-white font-semibold py-2 rounded-lg transition-colors duration-200"
             >
               View Details
@@ -125,66 +127,12 @@
 </template>
 
 <script setup>
-const packages = [
-  {
-    id: 1,
-    title: "Bali Beach Paradise",
-    location: "Bali, Indonesia",
-    duration: "7 Days",
-    maxPeople: 10,
-    rating: 4.9,
-    reviews: 145,
-    originalPrice: 1299,
-    price: 999,
-    discount: "23% OFF",
-    image:
-      "https://images.unsplash.com/photo-1537996194471-e657df975ab4?w=800&q=80",
-  },
-  {
-    id: 2,
-    title: "Romantic Paris Getaway",
-    location: "Paris, France",
-    duration: "5 Days",
-    maxPeople: 8,
-    rating: 4.8,
-    reviews: 98,
-    originalPrice: 1599,
-    price: 1299,
-    discount: "19% OFF",
-    image:
-      "https://images.unsplash.com/photo-1511739001486-6bfe10ce785f?w=800&q=80",
-  },
-  {
-    id: 3,
-    title: "Japan Cultural Experience",
-    location: "Tokyo & Kyoto",
-    duration: "10 Days",
-    maxPeople: 12,
-    rating: 5,
-    reviews: 203,
-    originalPrice: 2499,
-    price: 1999,
-    discount: "20% OFF",
-    image:
-      "https://images.unsplash.com/photo-1540959733332-eab4deabeeaf?w=800&q=80",
-  },
-  {
-    id: 4,
-    title: "Greek Islands Adventure",
-    location: "Santorini, Greece",
-    duration: "8 Days",
-    maxPeople: 10,
-    rating: 4.7,
-    reviews: 87,
-    originalPrice: 1799,
-    price: 1499,
-    discount: "17% OFF",
-    image:
-      "https://images.unsplash.com/photo-1613395877344-13d4a8e0d49e?w=800&q=80",
-  },
-];
-</script>
+// Use the shared packages composable
+const { packages, createSlug } = usePackages();
 
-<style scoped>
-/* Additional custom styles if needed */
-</style>
+// Navigate to package detail page
+const goToPackage = (pkg) => {
+  const slug = createSlug(pkg.title);
+  navigateTo(`/packages/${slug}`);
+};
+</script>

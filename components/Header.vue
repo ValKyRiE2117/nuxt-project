@@ -22,9 +22,7 @@
             />
           </svg>
         </div>
-        <span class="text-xl lg:text-2xl font-bold text-gray-700"
-          >TravelHub</span
-        >
+        <h1 class="text-xl lg:text-2xl font-bold text-gray-700">TravelHub</h1>
       </div>
 
       <!-- CTA Button & Mobile Menu Toggle -->
@@ -120,7 +118,7 @@ import { ref } from "vue";
 const isMenuOpen = ref(false);
 
 const menuItems = [
-  { name: "Home", url: "#", active: true },
+  { name: "Home", url: "/", active: true },
   { name: "Tentang Kami", url: "#", active: false },
   { name: "Jelajah Paket", url: "#", active: false },
 ];

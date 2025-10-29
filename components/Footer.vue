@@ -6,7 +6,7 @@
         <div class="lg:col-span-1">
           <div class="flex items-center gap-3 mb-4">
             <div
-              class="w-12 h-12 bg-blue-500 rounded-xl flex items-center justify-center"
+              class="w-12 h-12 bg-sky-500 rounded-xl flex items-center justify-center"
             >
               <svg
                 class="w-7 h-7 text-white"
@@ -90,8 +90,8 @@ const currentYear = computed(() => new Date().getFullYear());
 
 const quickLinks = [
   { name: "Home", url: "/" },
-  { name: "Destinations", url: "/destinations" },
-  { name: "Packages", url: "/packages" },
+  { name: "About Us", url: "/about" },
+  { name: "Destinations", url: "/destination" },
 ];
 
 const supportLinks = [
