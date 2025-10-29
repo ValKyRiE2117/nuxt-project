@@ -44,7 +44,7 @@ const destinations = [
     <div class="max-w-7xl mx-auto">
       <!-- Header Section -->
       <div class="text-center mb-12">
-        <h1 class="text-2xl lg:text-4xl font-bold text-gray-900 mb-4">
+        <h1 class="text-2xl lg:text-4xl font-bold text-sky-500 mb-4">
           Popular Destinations
         </h1>
         <p class="text-lg lg:text-xl text-gray-600">
@@ -92,11 +92,12 @@ const destinations = [
               <h3 class="text-lg md:text-2xl lg:text-3xl font-bold mb-3">
                 {{ destination.city }}
               </h3>
-              <div class="flex items-center justify-between">
+              <div class="flex items-center justify-between align-baseline">
                 <span class="text-xs md:text-sm"
                   >{{ destination.packages }} packages</span
                 >
-                <span class="sm:text-sm md:text-base lg:text-lg font-extrabold"
+                <span
+                  class="sm:text-sm md:text-base lg:text-lg font-extrabold text-right"
                   ><span class="text-xs font-light text-gray-300">From</span>
                   {{ destination.price }}</span
                 >

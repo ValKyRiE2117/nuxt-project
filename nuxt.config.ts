@@ -14,7 +14,11 @@ export default defineNuxtConfig({
   modules: ["@nuxt/fonts"],
   fonts: {
     families: [
-      { name: "Poppins", provider: "google" },
+      {
+        name: "Sansation",
+        provider: "google",
+        weights: [300, 400, 500, 600, 700, 800, 900],
+      },
       {
         name: "Plus Jakarta Sans",
         provider: "google",

@@ -1,3 +1,4 @@
 <template>
+  <Hero />
   <PopularDestinations />
 </template>
