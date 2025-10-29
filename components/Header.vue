@@ -22,16 +22,18 @@
             />
           </svg>
         </div>
-        <h1 class="text-xl lg:text-2xl font-bold text-gray-700">TravelHub</h1>
+        <span class="text-xl lg:text-2xl font-bold text-gray-700"
+          >TravelHub</span
+        >
       </div>
 
       <!-- CTA Button & Mobile Menu Toggle -->
       <div class="flex md:order-2 space-x-3 md:space-x-0 rtl:space-x-reverse">
         <button
           type="button"
-          class="text-white bg-sky-500 hover:bg-sky-600 focus:ring-4 focus:outline-none focus:ring-sky-200 font-medium rounded-lg text-sm px-4 py-2 md:px-5 md:py-3 text-center transition-colors duration-200"
+          class="text-white bg-sky-500 hover:bg-sky-600 focus:ring-4 focus:outline-none focus:ring-sky-200 font-medium rounded-lg text-sm md:text-base px-4 py-2 lg:py-3 text-center transition-colors duration-200"
         >
-          Pesan Sekarang
+          Travel Now
         </button>
 
         <!-- Mobile Menu Button -->
@@ -113,15 +115,31 @@
 </template>
 
 <script setup>
-import { ref } from "vue";
+import { ref, computed } from "vue";
+import { useRoute } from "vue-router";
 
+const route = useRoute();
 const isMenuOpen = ref(false);
 
 const menuItems = [
-  { name: "Home", url: "/", active: true },
-  { name: "Tentang Kami", url: "#", active: false },
-  { name: "Jelajah Paket", url: "#", active: false },
+  { name: "Home", url: "/" },
+  { name: "Tentang Kami", url: "/about" },
+  { name: "Jelajah Paket", url: "/packages" },
 ];
+
+// Computed property that reacts to route changes
+const currentPath = computed(() => route.path);
+
+// Check if menu item is active based on current route
+const isActive = (url) => {
+  const path = currentPath.value;
+  if (url === "/") {
+    // For home page, only match exact path
+    return path === "/";
+  }
+  // For other pages, match if route starts with the URL
+  return path.startsWith(url);
+};
 </script>
 
 <style scoped>

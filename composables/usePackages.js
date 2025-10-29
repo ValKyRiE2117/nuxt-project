@@ -128,7 +128,7 @@ export const usePackages = () => {
     {
       id: 3,
       title: "Japan Cultural Experience",
-      location: "Tokyo & Kyoto",
+      location: "Tokyo, Japan",
       duration: "10 Days / 9 Nights",
       maxPeople: 12,
       rating: 5,
