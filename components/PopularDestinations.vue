@@ -44,9 +44,9 @@ const destinations = [
     <div class="max-w-7xl mx-auto">
       <!-- Header Section -->
       <div class="text-center mb-12">
-        <h1 class="text-2xl lg:text-4xl font-bold text-sky-500 mb-4">
+        <h2 class="text-2xl lg:text-4xl font-bold text-sky-500 mb-4">
           Popular Destinations
-        </h1>
+        </h2>
         <p class="text-lg lg:text-xl text-gray-600">
           Explore the world's most beloved travel spots
         </p>
