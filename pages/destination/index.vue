@@ -75,7 +75,7 @@
       <!-- Destination Cards Grid -->
       <div
         v-else
-        class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 mb-12"
+        class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3 mb-12"
       >
         <div
           v-for="destination in paginatedDestinations"
