@@ -90,7 +90,7 @@ const currentYear = computed(() => new Date().getFullYear());
 
 const quickLinks = [
   { name: "Home", url: "/" },
-  { name: "About Us", url: "/about" },
+  { name: "About Us", url: "#" },
   { name: "Destinations", url: "/destination" },
 ];
 
