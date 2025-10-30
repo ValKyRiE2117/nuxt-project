@@ -1,12 +1,16 @@
 <template>
   <div class="bg-gray-50 min-h-screen">
     <!-- Hero Section -->
-    <section class="bg-gradient-to-r from-cyan-500 to-blue-500 py-20 px-4">
+    <section
+      class="bg-gradient-to-r from-sky-500 to-indigo-500 py-10 md:py-16 px-4"
+    >
       <div class="max-w-7xl mx-auto text-center">
-        <h1 class="text-5xl font-bold text-white mb-6">
+        <h1 class="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-6">
           Discover Destinations
         </h1>
-        <p class="text-xl text-white/90 mb-8">
+        <p
+          class="text-lg md:text-xl text-white/90 max-w-3xl mx-auto drop-shadow-md mb-8"
+        >
           Explore amazing places around the world
         </p>
 
@@ -16,8 +20,8 @@
             <input
               v-model="searchQuery"
               type="text"
-              placeholder="Search destinations..."
-              class="w-full px-6 py-4 pl-14 rounded-lg text-gray-700 focus:outline-none focus:ring-2 focus:ring-white shadow-lg"
+              placeholder="Where do you want to go?"
+              class="w-full pl-12 pr-3 py-2 lg:pr-4 lg:py-3 text-gray-700 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-sky-500 focus:border-transparent transition-all duration-200"
             />
             <svg
               class="absolute left-5 top-1/2 -translate-y-1/2 w-5 h-5 text-gray-400"
@@ -71,7 +75,7 @@
       <!-- Destination Cards Grid -->
       <div
         v-else
-        class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12"
+        class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 mb-12"
       >
         <div
           v-for="destination in paginatedDestinations"
@@ -93,7 +97,7 @@
             'px-4 py-2 rounded-lg font-medium transition-colors duration-200',
             currentPage === 1
               ? 'bg-gray-200 text-gray-400 cursor-not-allowed'
-              : 'bg-white text-gray-700 hover:bg-cyan-500 hover:text-white shadow',
+              : 'bg-white text-gray-700 hover:bg-sky-500 hover:text-white shadow',
           ]"
         >
           Previous
@@ -107,8 +111,8 @@
           :class="[
             'px-4 py-2 rounded-lg font-medium transition-colors duration-200',
             currentPage === page
-              ? 'bg-cyan-500 text-white shadow-lg'
-              : 'bg-white text-gray-700 hover:bg-cyan-100 shadow',
+              ? 'bg-sky-500 text-white shadow-lg'
+              : 'bg-white text-gray-700 hover:bg-sky-100 shadow',
           ]"
         >
           {{ page }}
@@ -122,7 +126,7 @@
             'px-4 py-2 rounded-lg font-medium transition-colors duration-200',
             currentPage === totalPages
               ? 'bg-gray-200 text-gray-400 cursor-not-allowed'
-              : 'bg-white text-gray-700 hover:bg-cyan-500 hover:text-white shadow',
+              : 'bg-white text-gray-700 hover:bg-sky-500 hover:text-white shadow',
           ]"
         >
           Next

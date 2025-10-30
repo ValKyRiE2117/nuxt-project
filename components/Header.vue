@@ -1,15 +1,15 @@
 <template>
   <nav class="bg-white w-full z-20 top-0 start-0 border-b border-gray-200">
     <div
-      class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4"
+      class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-3"
     >
       <!-- Logo -->
       <div class="flex items-center gap-3">
         <div
-          class="w-10 h-10 lg:w-12 lg:h-12 bg-sky-500 rounded-xl flex items-center justify-center"
+          class="w-8 h-8 lg:w-10 lg:h-10 bg-sky-500 rounded-xl flex items-center justify-center"
         >
           <svg
-            class="w-7 h-7 text-white"
+            class="w-6 h-6 text-white"
             fill="none"
             stroke="currentColor"
             viewBox="0 0 24 24"
@@ -22,7 +22,7 @@
             />
           </svg>
         </div>
-        <span class="text-xl lg:text-2xl font-bold text-gray-700"
+        <span class="text-lg lg:text-xl font-bold text-gray-700"
           >TravelHub</span
         >
       </div>
@@ -31,7 +31,7 @@
       <div class="flex md:order-2 space-x-3 md:space-x-0 rtl:space-x-reverse">
         <NuxtLink
           to="/login"
-          class="text-white bg-sky-500 hover:bg-sky-600 focus:ring-4 focus:outline-none focus:ring-sky-200 font-medium rounded-lg text-sm md:text-base px-4 py-2 lg:py-3 text-center transition-colors duration-200"
+          class="text-white bg-sky-500 hover:bg-sky-600 focus:ring-4 focus:outline-none focus:ring-sky-200 font-medium rounded-lg text-sm md:text-base px-4 py-2 text-center transition-colors duration-200"
         >
           Book Now
         </NuxtLink>
@@ -123,8 +123,8 @@ const isMenuOpen = ref(false);
 
 const menuItems = [
   { name: "Home", url: "/" },
-  { name: "Tentang Kami", url: "/about" },
-  { name: "Jelajah Paket", url: "/packages" },
+  { name: "About us", url: "#" },
+  { name: "Destinations", url: "/destination" },
 ];
 
 // Computed property that reacts to route changes
