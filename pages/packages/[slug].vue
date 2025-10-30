@@ -78,11 +78,6 @@
                   <span>{{ packageData.location }}</span>
                 </div>
               </div>
-              <span
-                class="bg-red-600 text-white px-3 py-1 lg:px-4 lg:py-2 rounded-full text-xs md:text-sm font-bold"
-              >
-                {{ packageData.discount }}
-              </span>
             </div>
 
             <!-- Meta Info -->
