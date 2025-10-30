@@ -29,12 +29,12 @@
 
       <!-- CTA Button & Mobile Menu Toggle -->
       <div class="flex md:order-2 space-x-3 md:space-x-0 rtl:space-x-reverse">
-        <button
-          type="button"
+        <NuxtLink
+          to="/login"
           class="text-white bg-sky-500 hover:bg-sky-600 focus:ring-4 focus:outline-none focus:ring-sky-200 font-medium rounded-lg text-sm md:text-base px-4 py-2 lg:py-3 text-center transition-colors duration-200"
         >
-          Travel Now
-        </button>
+          Book Now
+        </NuxtLink>
 
         <!-- Mobile Menu Button -->
         <button
