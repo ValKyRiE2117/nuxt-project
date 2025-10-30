@@ -17,7 +17,7 @@ const popularDestinations = destinations.slice(0, 4);
       </div>
 
       <!-- Destinations Grid -->
-      <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 mb-12">
+      <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 mb-12">
         <div
           v-for="destination in popularDestinations"
           :key="destination.id"
