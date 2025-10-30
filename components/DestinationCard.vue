@@ -40,13 +40,13 @@ defineProps({
       <h3 class="text-lg md:text-2xl lg:text-3xl font-bold mb-3">
         {{ destination.city }}
       </h3>
-      <div class="flex items-center justify-between align-baseline">
+      <div
+        class="flex items-center justify-between align-baseline align-bottom"
+      >
         <span class="text-xs md:text-sm">
           {{ destination.packages }} packages
         </span>
-        <span
-          class="sm:text-sm md:text-base lg:text-lg font-extrabold text-right"
-        >
+        <span class="text-sm md:text-base lg:text-lg font-semibold text-right">
           <span class="text-xs font-light text-gray-300">From</span>
           ${{ destination.priceFrom }}
         </span>
