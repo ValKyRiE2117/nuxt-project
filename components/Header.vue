@@ -121,12 +121,6 @@ import { useRoute } from "vue-router";
 const route = useRoute();
 const isMenuOpen = ref(false);
 
-const menuItems = [
-  { name: "Home", url: "/" },
-  { name: "About us", url: "#" },
-  { name: "Destinations", url: "/destination" },
-];
-
 // Computed property that reacts to route changes
 const currentPath = computed(() => route.path);
 
@@ -140,6 +134,12 @@ const isActive = (url) => {
   // For other pages, match if route starts with the URL
   return path.startsWith(url);
 };
+
+const menuItems = computed(() => [
+  { name: "Home", url: "/", active: isActive("/") },
+  { name: "About us", url: "#", active: isActive("#") },
+  { name: "Destinations", url: "/destination", active: isActive("/destination") },
+]);
 </script>
 
 <style scoped>
