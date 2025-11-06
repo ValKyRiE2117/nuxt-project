@@ -183,9 +183,7 @@ const unwatchSearch = computed(() => {
 });
 
 const goToDestination = (destination) => {
-  console.log("Navigate to:", destination.city);
-  // Add navigation logic here
-  // Example: navigateTo(`/destinations/${destination.city.toLowerCase()}`)
+  navigateTo(`/destination/${destination.city}`);
 };
 </script>
 
