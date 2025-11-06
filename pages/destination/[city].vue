@@ -1,8 +1,10 @@
 <template>
-  <div class="bg-gray-50 min-h-screen">
+  <div class="bg-gray-100 min-h-screen">
     <!-- Hero Section -->
-    <section class="bg-gradient-to-r from-sky-500 to-indigo-500 py-16 px-4">
-      <div class="max-w-7xl mx-auto">
+    <section
+      class="bg-gradient-to-r from-sky-500 to-indigo-500 py-4 lg:py-8 px-4"
+    >
+      <div class="max-w-6xl mx-auto px-4">
         <!-- Back Button -->
         <NuxtLink
           to="/destination"
@@ -32,168 +34,117 @@
               clip-rule="evenodd"
             />
           </svg>
-          <h1 class="text-4xl md:text-5xl font-bold">
+          <h1 class="text-2xl md:text-3xl font-bold">
             {{ destinationData?.city }}, {{ destinationData?.country }}
           </h1>
         </div>
-        <p class="text-xl text-white/90">Explore amazing travel packages</p>
       </div>
     </section>
 
     <!-- Main Content -->
-    <section class="max-w-7xl mx-auto px-4 py-12">
-      <div class="grid grid-cols-1 lg:grid-cols-4 gap-8">
+    <section class="max-w-6xl mx-auto px-4 py-12">
+      <div class="grid grid-cols-1 lg:grid-cols-4 gap-6">
         <!-- Sidebar Filters -->
-        <aside class="lg:col-span-1">
-          <div class="bg-white rounded-2xl p-6 shadow-lg sticky top-8">
-            <h2 class="text-xl font-bold text-gray-900 mb-6">Filters</h2>
-
-            <!-- Search Packages -->
-            <div class="mb-6">
-              <label class="block text-sm font-semibold text-gray-700 mb-2">
-                Search Packages
-              </label>
-              <div class="relative">
-                <input
-                  v-model="searchQuery"
-                  type="text"
-                  placeholder="Search packages..."
-                  class="w-full pl-10 pr-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-sky-500"
+        <div class="bg-white rounded-2xl p-6 shadow-sm sticky top-8 lg:top-8">
+          <!-- Search Packages -->
+          <div class="mb-6">
+            <label class="block text-sm font-semibold text-gray-700 mb-2">
+              Search Packages
+            </label>
+            <div class="relative">
+              <input
+                v-model="searchQuery"
+                type="text"
+                placeholder="Search packages..."
+                class="w-full pl-10 pr-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-sky-500"
+              />
+              <svg
+                class="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-gray-400"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
                 />
-                <svg
-                  class="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-gray-400"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="2"
-                    d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
-                  />
-                </svg>
-              </div>
+              </svg>
             </div>
-
-            <!-- Category Filter -->
-            <div class="mb-6">
-              <h3 class="text-sm font-semibold text-gray-700 mb-3">Category</h3>
-              <div class="space-y-2">
-                <label class="flex items-center cursor-pointer">
-                  <input
-                    v-model="selectedCategory"
-                    type="radio"
-                    value="all"
-                    class="w-4 h-4 text-sky-500 focus:ring-sky-500"
-                  />
-                  <span class="ml-2 text-gray-700">All</span>
-                </label>
-                <label class="flex items-center cursor-pointer">
-                  <input
-                    v-model="selectedCategory"
-                    type="radio"
-                    value="beach"
-                    class="w-4 h-4 text-sky-500 focus:ring-sky-500"
-                  />
-                  <span class="ml-2 text-gray-700">Beach</span>
-                </label>
-                <label class="flex items-center cursor-pointer">
-                  <input
-                    v-model="selectedCategory"
-                    type="radio"
-                    value="adventure"
-                    class="w-4 h-4 text-sky-500 focus:ring-sky-500"
-                  />
-                  <span class="ml-2 text-gray-700">Adventure</span>
-                </label>
-                <label class="flex items-center cursor-pointer">
-                  <input
-                    v-model="selectedCategory"
-                    type="radio"
-                    value="cultural"
-                    class="w-4 h-4 text-sky-500 focus:ring-sky-500"
-                  />
-                  <span class="ml-2 text-gray-700">Cultural</span>
-                </label>
-                <label class="flex items-center cursor-pointer">
-                  <input
-                    v-model="selectedCategory"
-                    type="radio"
-                    value="city-tour"
-                    class="w-4 h-4 text-sky-500 focus:ring-sky-500"
-                  />
-                  <span class="ml-2 text-gray-700">City Tour</span>
-                </label>
-              </div>
-            </div>
-
-            <!-- Price Range -->
-            <div class="mb-6">
-              <h3 class="text-sm font-semibold text-gray-700 mb-3">
-                Price Range
-              </h3>
-              <div class="space-y-2">
-                <label class="flex items-center cursor-pointer">
-                  <input
-                    v-model="selectedPriceRange"
-                    type="radio"
-                    value="all"
-                    class="w-4 h-4 text-sky-500 focus:ring-sky-500"
-                  />
-                  <span class="ml-2 text-gray-700">All Prices</span>
-                </label>
-                <label class="flex items-center cursor-pointer">
-                  <input
-                    v-model="selectedPriceRange"
-                    type="radio"
-                    value="0-1000"
-                    class="w-4 h-4 text-sky-500 focus:ring-sky-500"
-                  />
-                  <span class="ml-2 text-gray-700">Under $1000</span>
-                </label>
-                <label class="flex items-center cursor-pointer">
-                  <input
-                    v-model="selectedPriceRange"
-                    type="radio"
-                    value="1000-1500"
-                    class="w-4 h-4 text-sky-500 focus:ring-sky-500"
-                  />
-                  <span class="ml-2 text-gray-700">$1000 - $1500</span>
-                </label>
-                <label class="flex items-center cursor-pointer">
-                  <input
-                    v-model="selectedPriceRange"
-                    type="radio"
-                    value="1500-2000"
-                    class="w-4 h-4 text-sky-500 focus:ring-sky-500"
-                  />
-                  <span class="ml-2 text-gray-700">$1500 - $2000</span>
-                </label>
-                <label class="flex items-center cursor-pointer">
-                  <input
-                    v-model="selectedPriceRange"
-                    type="radio"
-                    value="2000+"
-                    class="w-4 h-4 text-sky-500 focus:ring-sky-500"
-                  />
-                  <span class="ml-2 text-gray-700">Over $2000</span>
-                </label>
-              </div>
-            </div>
-
-            <!-- Clear Filters -->
-            <button
-              @click="clearFilters"
-              class="w-full bg-gray-200 hover:bg-gray-300 text-gray-700 font-medium py-2 rounded-lg transition-colors duration-200"
-            >
-              Clear Filters
-            </button>
           </div>
-        </aside>
+
+          <!-- Price Range -->
+          <div class="mb-6">
+            <h3 class="text-sm font-semibold text-gray-700 mb-3">
+              Price Range
+            </h3>
+            <div class="space-y-2">
+              <label class="flex items-center cursor-pointer">
+                <input
+                  v-model="selectedPriceRange"
+                  type="radio"
+                  value="all"
+                  class="w-4 h-4 text-sky-500 focus:ring-sky-500"
+                />
+                <span class="ml-2 text-gray-700">All Prices</span>
+              </label>
+              <label class="flex items-center cursor-pointer">
+                <input
+                  v-model="selectedPriceRange"
+                  type="radio"
+                  value="0-1000"
+                  class="w-4 h-4 text-sky-500 focus:ring-sky-500"
+                />
+                <span class="ml-2 text-gray-700">Under $1000</span>
+              </label>
+              <label class="flex items-center cursor-pointer">
+                <input
+                  v-model="selectedPriceRange"
+                  type="radio"
+                  value="1000-1500"
+                  class="w-4 h-4 text-sky-500 focus:ring-sky-500"
+                />
+                <span class="ml-2 text-gray-700">$1000 - $1500</span>
+              </label>
+              <label class="flex items-center cursor-pointer">
+                <input
+                  v-model="selectedPriceRange"
+                  type="radio"
+                  value="1500-2000"
+                  class="w-4 h-4 text-sky-500 focus:ring-sky-500"
+                />
+                <span class="ml-2 text-gray-700">$1500 - $2000</span>
+              </label>
+              <label class="flex items-center cursor-pointer">
+                <input
+                  v-model="selectedPriceRange"
+                  type="radio"
+                  value="2000+"
+                  class="w-4 h-4 text-sky-500 focus:ring-sky-500"
+                />
+                <span class="ml-2 text-gray-700">Over $2000</span>
+              </label>
+            </div>
+          </div>
+
+          <!-- Clear Filters -->
+          <button
+            @click="clearFilters"
+            class="w-full bg-gray-200 hover:bg-gray-300 text-gray-700 font-medium py-2 rounded-lg transition-colors duration-200"
+          >
+            Clear Filters
+          </button>
+        </div>
 
         <!-- Packages List -->
-        <div class="lg:col-span-3">
+        <div
+          class="lg:col-span-3"
+          :class="{
+            'lg:col-span-3': !isFilterOpen,
+            'lg:col-span-4': isFilterOpen,
+          }"
+        >
           <!-- Results Count -->
           <p class="text-gray-600 mb-6">
             {{ filteredPackages.length }} package{{
@@ -205,7 +156,7 @@
           <!-- No Results -->
           <div
             v-if="filteredPackages.length === 0"
-            class="text-center py-12 bg-white rounded-2xl"
+            class="text-center py-12 rounded-2xl"
           >
             <svg
               class="w-20 h-20 text-gray-400 mx-auto mb-4"
@@ -233,30 +184,52 @@
             <div
               v-for="pkg in filteredPackages"
               :key="pkg.id"
-              class="bg-white rounded-2xl p-6 shadow-lg hover:shadow-xl transition-shadow duration-300"
+              @click="goToPackage(pkg)"
+              class="bg-white rounded-2xl p-6 shadow-sm hover:shadow-xl transition-shadow duration-300 cursor-pointer"
             >
               <div class="flex items-start justify-between mb-4">
                 <div class="flex-1">
                   <!-- Discount Badge -->
                   <span
-                    class="inline-block bg-orange-500 text-white px-3 py-1 rounded-full text-sm font-bold mb-3"
+                    class="inline-block bg-red-600 text-white px-3 py-1 rounded-full text-xs font-bold mb-2"
                   >
                     {{ pkg.discount }}
                   </span>
 
                   <!-- Title -->
-                  <h3 class="text-2xl font-bold text-gray-900 mb-2">
+                  <h3 class="text-lg lg:text-xl font-bold text-gray-900 mb-2">
                     {{ pkg.title }}
                   </h3>
 
                   <!-- Location -->
-                  <p class="text-gray-600 mb-4">{{ pkg.location }}</p>
+                  <div class="flex items-center gap-1 text-gray-600 mb-3">
+                    <svg
+                      class="w-5 h-5"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"
+                      />
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"
+                      />
+                    </svg>
+                    <span>{{ pkg.location }}</span>
+                  </div>
 
                   <!-- Meta Info -->
                   <div class="flex flex-wrap gap-4 text-sm text-gray-600 mb-4">
                     <div class="flex items-center gap-1">
                       <svg
-                        class="w-4 h-4"
+                        class="w-5 h-5"
                         fill="none"
                         stroke="currentColor"
                         viewBox="0 0 24 24"
@@ -289,7 +262,7 @@
                   </div>
 
                   <!-- Rating -->
-                  <div class="flex items-center gap-2 mb-4">
+                  <div class="flex items-center gap-2 mb-2">
                     <svg
                       class="w-5 h-5 text-yellow-400 fill-current"
                       viewBox="0 0 20 20"
@@ -305,24 +278,18 @@
                   </div>
 
                   <!-- Price -->
-                  <div class="flex items-baseline gap-2 mb-4">
-                    <span class="text-gray-500 line-through text-lg"
+                  <div class="flex items-baseline gap-2">
+                    <span
+                      class="text-gray-500 line-through text-base lg:text-lg"
                       >${{ pkg.originalPrice }}</span
                     >
-                    <span class="text-3xl font-bold text-sky-500"
+                    <span
+                      class="text-xl lg:text-2xl font-extrabold text-sky-500"
                       >${{ pkg.price }}</span
                     >
                   </div>
                 </div>
               </div>
-
-              <!-- View Details Button -->
-              <button
-                @click="goToPackage(pkg)"
-                class="w-full bg-sky-500 hover:bg-sky-600 text-white font-semibold py-3 rounded-lg transition-colors duration-200"
-              >
-                View Details
-              </button>
             </div>
           </div>
         </div>
@@ -340,7 +307,7 @@ const { packages, createSlug } = usePackages();
 const { getDestinationByCity } = useDestinations();
 
 const searchQuery = ref("");
-const selectedCategory = ref("all");
+
 const selectedPriceRange = ref("all");
 const destinationData = ref(null);
 
@@ -398,7 +365,6 @@ const filteredPackages = computed(() => {
 
 const clearFilters = () => {
   searchQuery.value = "";
-  selectedCategory.value = "all";
   selectedPriceRange.value = "all";
 };
 
